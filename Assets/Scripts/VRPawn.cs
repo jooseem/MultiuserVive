@@ -10,19 +10,12 @@ public class VRPawn : NetworkBehaviour {
     public Transform RightController;
 
 
-    void Awake () {
-        if (!isLocalPlayer)
-        {
-            GetComponentsInChildren<SteamVR_TrackedObject>(true).ToList().ForEach(x => x.enabled = false);
-			GetComponentInChildren<SteamVR_ControllerManager>().enabled = false;
-        } else
-        {
+    void Start () {
+        if (isLocalPlayer) { 
+            GetComponentInChildren<SteamVR_ControllerManager>().enabled = true;
+            GetComponentsInChildren<SteamVR_TrackedObject>(true).ToList().ForEach(x => x.enabled = true);
             Head.GetComponentsInChildren<MeshRenderer>(true).ToList().ForEach(x => x.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly);
         }
-	}
-
-	void Update () {
-	
 	}
 
     void OnDestroy()
