@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.Networking.Match;
 
 public class CustomNetworkManager : NetworkManager {
 
@@ -25,4 +26,5 @@ public class CustomNetworkManager : NetworkManager {
         base.OnClientError(conn, errorCode);
         ClientError();
     }
+
 }

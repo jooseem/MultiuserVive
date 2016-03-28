@@ -417,16 +417,22 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   intPropertyNames:
   - Android::ScriptingBackend
+  - CloudNetworkingId::CloudNetworkingId
   - Standalone::ScriptingBackend
   - WebPlayer::ScriptingBackend
   Android::ScriptingBackend: 0
+  CloudNetworkingId::CloudNetworkingId: 921652
   Standalone::ScriptingBackend: 0
   WebPlayer::ScriptingBackend: 0
   boolPropertyNames:
   - XboxOne::enus
   XboxOne::enus: 1
-  stringPropertyNames: []
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  stringPropertyNames:
+  - Build_ServiceEnabled::Build_ServiceEnabled
+  - UNet_ServiceEnabled::UNet_ServiceEnabled
+  Build_ServiceEnabled::Build_ServiceEnabled: True
+  UNet_ServiceEnabled::UNet_ServiceEnabled: True
+  cloudProjectId: ae8909a9-43c1-4ce9-99c7-08e36dc3031e
+  projectName: MultiuserVive
+  organizationId: lumacode
   cloudEnabled: 0
