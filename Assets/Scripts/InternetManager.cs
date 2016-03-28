@@ -5,14 +5,21 @@ using UnityEngine.Networking.Match;
 
 public class InternetManager : NetworkManager
 {
-   
-    public string roomName = "room1";
+    public bool CreateRoom = false;
+    public string RoomName = "room1";
     
     public void Start () {
 
         StartMatchMaker();
-
-        matchMaker.ListMatches(0, 20, "", OnMatchList);
+        
+        if (CreateRoom)
+        {
+            CreateMatch(RoomName);
+        } else
+        {
+            matchMaker.ListMatches(0, 20, "", OnMatchList);
+        }
+       
     }
 
     void CreateMatch(string newMatchName)
@@ -35,16 +42,12 @@ public class InternetManager : NetworkManager
         // auto join room if found
         foreach (MatchDesc match in matchList.matches)
         {
-            Debug.Log("Match "+match.name + " found");
-            if (match.name == roomName)
+            if (match.name == RoomName)
             {
                 JoinMatch(match);
                 return;
             }
         }
-
-        // otherwise create room
-        CreateMatch(roomName);
 
     }
 
