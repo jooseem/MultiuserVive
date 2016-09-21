@@ -1,6 +1,8 @@
 # Multiuser Vive
 
-Basic Unity project setup for multiplayer with HTC Vive. (Includes SteamVR v1.08)
+Basic Unity project setup for multiplayer with HTC Vive. (Includes SteamVR v1.1.1)
+
+Updated for Unity 5.4.1p1 and now requires Unity 5.4.
 
 Seperate scenes for Local network or Internet version.
 
