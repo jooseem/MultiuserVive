@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 
@@ -17,7 +18,7 @@ public class InternetManager : NetworkManager
             CreateMatch(RoomName);
         } else
         {
-            matchMaker.ListMatches(0, 20, "", OnMatchList);
+            matchMaker.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
         }
        
     }
@@ -25,22 +26,22 @@ public class InternetManager : NetworkManager
     void CreateMatch(string newMatchName)
     {
         matchName = newMatchName;
-        matchMaker.CreateMatch(matchName, 2, true, "", OnMatchCreate);
+        matchMaker.CreateMatch(matchName, 2, true, "", "", "", 0, 0, OnMatchCreate);
     }
 
-    void JoinMatch(MatchDesc match)
+    void JoinMatch(MatchInfoSnapshot match)
     {
         matchName = match.name;
         matchSize = (uint)match.currentSize;
-        matchMaker.JoinMatch(match.networkId, "", OnMatchJoined);
+        matchMaker.JoinMatch(match.networkId, "", "","", 0, 0, OnMatchJoined);
     }
 
-    public override void OnMatchList(ListMatchResponse matchList)
-    {
-        base.OnMatchList(matchList);
+    override public void OnMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> matchList) {
+
+        base.OnMatchList(success, extendedInfo, matchList);
 
         // auto join room if found
-        foreach (MatchDesc match in matchList.matches)
+        foreach (MatchInfoSnapshot match in matchList)
         {
             if (match.name == RoomName)
             {
