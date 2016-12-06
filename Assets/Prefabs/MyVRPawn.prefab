@@ -12,6 +12,8 @@ GameObject:
   - 114: {fileID: 11482548}
   - 114: {fileID: 11405916}
   - 114: {fileID: 11415038}
+  - 114: {fileID: 114000013199839998}
+  - 114: {fileID: 114000014181238828}
   m_Layer: 0
   m_Name: MyVRPawn
   m_TagString: Untagged
@@ -246,6 +248,8 @@ MonoBehaviour:
   Head: {fileID: 498524}
   LeftController: {fileID: 0}
   RightController: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
 --- !u!114 &11415038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2422,6 +2426,25 @@ MonoBehaviour:
   deformPosition: 0
   modelFingerPointing: {x: 1, y: 0, z: 0}
   modelPalmFacing: {x: -0, y: -1, z: 0}
+--- !u!114 &114000013199839998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000011082823302}
+  m_ChildIndex: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000013246903994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2560,6 +2583,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215a4d49fc705b74a9d3c5cbfa2c9601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000014181238828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000012954028358}
+  m_ChildIndex: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000014202669770
 MonoBehaviour:
   m_ObjectHideFlags: 1
