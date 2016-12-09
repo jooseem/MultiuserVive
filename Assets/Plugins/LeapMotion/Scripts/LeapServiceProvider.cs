@@ -20,9 +20,13 @@ namespace Leap.Unity {
     [SerializeField]
     protected bool _isHeadMounted = false;
 
-    [AutoFind]
     [SerializeField]
     protected LeapVRTemporalWarping _temporalWarping;
+
+        public void setTempralWarping(LeapVRTemporalWarping lvrtw)
+        {
+            _temporalWarping = lvrtw;
+        }
 
     [Tooltip("When true, update frames will be re-used for physics.  This is an optimization, since the total number " +
              "of frames that need to be calculated is halved.  However, this introduces extra latency and inaccuracy " +
@@ -164,16 +168,18 @@ namespace Leap.Unity {
       _fixedOffset.delay = 0.4f;
     }
 
-    protected virtual void Start() {
-      createController();
+    protected virtual void Start()
+        {
+            createController();
       _transformedUpdateFrame = new Frame();
       _transformedFixedFrame = new Frame();
       _untransformedUpdateFrame = new Frame();
       _untransformedFixedFrame = new Frame();
       StartCoroutine(waitCoroutine());
-    }
+        }
 
-    protected IEnumerator waitCoroutine() {
+
+        protected IEnumerator waitCoroutine() {
       WaitForEndOfFrame endWaiter = new WaitForEndOfFrame();
       while (true) {
         yield return endWaiter;

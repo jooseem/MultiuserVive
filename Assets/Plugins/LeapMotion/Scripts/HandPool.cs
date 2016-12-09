@@ -117,6 +117,7 @@ namespace Leap.Unity {
     }
     /** Popuates the ModelPool with the contents of the ModelCollection */
     void Start() {
+            UnityEngine.Debug.Log("hi");
       if (ModelsParent == null) {
         Debug.LogWarning("HandPool.ModelsParent needs to reference the parent transform of the hand models.  This transform should be a child of the LMHeadMountedRig transform.");
       }
@@ -150,15 +151,19 @@ namespace Leap.Unity {
           modelGroupMapping.Add(rightModel, collectionGroup);
         }
       }
-    }
+        }
+        public void hi()
+        {
+            Start();
+        }
 
-    /**
-     * MakeHandRepresentation receives a Hand and combines that with an IHandModel to create a HandProxy
-     * @param hand The Leap Hand data to be drive an IHandModel
-     * @param modelType Filters for a type of hand model, for example, physics or graphics hands.
-     */
+        /**
+         * MakeHandRepresentation receives a Hand and combines that with an IHandModel to create a HandProxy
+         * @param hand The Leap Hand data to be drive an IHandModel
+         * @param modelType Filters for a type of hand model, for example, physics or graphics hands.
+         */
 
-    public override HandRepresentation MakeHandRepresentation(Hand hand, ModelType modelType) {
+        public override HandRepresentation MakeHandRepresentation(Hand hand, ModelType modelType) {
       Chirality handChirality = hand.IsRight ? Chirality.Right : Chirality.Left;
       HandProxy handRep = new HandProxy(this, hand, handChirality, modelType);
       for (int i = 0; i < ModelPool.Count; i++) {

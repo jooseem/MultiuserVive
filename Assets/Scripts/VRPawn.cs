@@ -16,13 +16,14 @@ public class VRPawn : NetworkBehaviour {
             /*GameObject cameraRig = GameObject.FindGameObjectWithTag("cameraRig");
             GameObject head = GetComponentInChildren<SteamVR_TrackedObject>().gameObject;
             cameraRig.transform.parent = head.transform;*/
-            Invoke("Activate", 5f);
-            GetComponentInChildren<LeapHandController>().enabled = true;
             GetComponentInChildren<HandPool>().enabled = true;
+            GetComponentInChildren<LeapHandController>().enabled = true;
             GetComponentInChildren<LeapServiceProvider>().enabled = true;
             Head.GetComponentsInChildren<MeshRenderer>(true).ToList().ForEach(x => x.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly);
+            Invoke("Activate", 5f);
 
-        }else
+        }
+        else
         {
             GetComponentsInChildren<HandTransitionBehavior>(true).ToList().ForEach(x => { x.gameObject.SetActive(true); Destroy(x); });
             GetComponentsInChildren<IHandModel>(true).ToList().ForEach(x => Destroy(x));
@@ -35,6 +36,9 @@ public class VRPawn : NetworkBehaviour {
     {
         LeapVRTemporalWarping leapSpace = GameObject.FindGameObjectWithTag("leapSpace").GetComponentInChildren<LeapVRTemporalWarping>(true);
         leapSpace.enabled = true;
+        leapSpace.setProvider(GetComponentInChildren<LeapServiceProvider>());
+        LeapServiceProvider lspr = GetComponentInChildren<LeapServiceProvider>();
+        lspr.setTempralWarping(leapSpace);
     }
 
     void OnDestroy()

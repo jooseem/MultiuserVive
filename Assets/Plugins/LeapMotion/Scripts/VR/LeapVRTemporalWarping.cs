@@ -46,11 +46,16 @@ namespace Leap.Unity {
       }
     }
 
-    [AutoFind]
+
     [SerializeField]
     private LeapServiceProvider provider;
 
-    [Tooltip("The transform that represents the head object.")]
+    public void setProvider(LeapServiceProvider lsp)
+    {
+        provider = lsp;
+    }
+
+        [Tooltip("The transform that represents the head object.")]
     [SerializeField]
     private Transform _headTransform;
 
@@ -230,6 +235,7 @@ namespace Leap.Unity {
 
     protected void Start() {
       if (provider.IsConnected()) {
+                UnityEngine.Debug.Log("inif");
         deviceInfo = provider.GetDeviceInfo();
         _shouldSetLocalPosition = true;
         LeapVRCameraControl.OnValidCameraParams += onValidCameraParams;
@@ -238,8 +244,10 @@ namespace Leap.Unity {
           enabled = false;
           return;
         }
-      } else {
-        StartCoroutine(waitForConnection());
+      } else
+            {
+                UnityEngine.Debug.Log("inelse");
+                StartCoroutine(waitForConnection());
         Controller controller = provider.GetLeapController();
         controller.Device += OnDevice;
       }
