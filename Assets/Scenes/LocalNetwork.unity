@@ -1606,11 +1606,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: runAsServer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_NetworkAddress
-      value: localhost
+      value: 169.254.80.80
       objectReference: {fileID: 0}
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_PlayerPrefab
