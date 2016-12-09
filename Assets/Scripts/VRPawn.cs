@@ -7,25 +7,34 @@ using Leap.Unity;
 public class VRPawn : NetworkBehaviour {
 
     public Transform Head;
-    public Transform LeftController;
-    public Transform RightController;
-    public RiggedHand left, right;
 
 
     void Start () {
         if (isLocalPlayer) { 
             //GetComponentInChildren<SteamVR_ControllerManager>().enabled = true;
             GetComponentsInChildren<SteamVR_TrackedObject>(true).ToList().ForEach(x => x.enabled = true);
-            
+            /*GameObject cameraRig = GameObject.FindGameObjectWithTag("cameraRig");
+            GameObject head = GetComponentInChildren<SteamVR_TrackedObject>().gameObject;
+            cameraRig.transform.parent = head.transform;*/
+            Invoke("Activate", 5f);
+            GetComponentInChildren<LeapHandController>().enabled = true;
+            GetComponentInChildren<HandPool>().enabled = true;
+            GetComponentInChildren<LeapServiceProvider>().enabled = true;
             Head.GetComponentsInChildren<MeshRenderer>(true).ToList().ForEach(x => x.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly);
 
         }else
         {
-            GetComponentsInChildren<HandTransitionBehavior>(true).ToList().ForEach(x => x.enabled = false);
-            GetComponentsInChildren<IHandModel>(true).ToList().ForEach(x => x.enabled = false);
-            GetComponentsInChildren<RiggedFinger>(true).ToList().ForEach(x => x.enabled = false);
-            GetComponentsInChildren<RiggedHand>(true).ToList().ForEach(x => x.enabled = false);
+            GetComponentsInChildren<HandTransitionBehavior>(true).ToList().ForEach(x => { x.gameObject.SetActive(true); Destroy(x); });
+            GetComponentsInChildren<IHandModel>(true).ToList().ForEach(x => Destroy(x));
+            GetComponentsInChildren<RiggedFinger>(true).ToList().ForEach(x => Destroy(x));
+            GetComponentsInChildren<RiggedHand>(true).ToList().ForEach(x => Destroy(x));
+            Destroy(GetComponentInChildren<LeapHandController>().gameObject);
         }
+    }
+    void Activate()
+    {
+        LeapVRTemporalWarping leapSpace = GameObject.FindGameObjectWithTag("leapSpace").GetComponentInChildren<LeapVRTemporalWarping>(true);
+        leapSpace.enabled = true;
     }
 
     void OnDestroy()

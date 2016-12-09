@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1084588126}
-  m_IndirectSpecularColor: {r: 0.043220464, g: 0.05287932, b: 0.06995019, a: 1}
+  m_IndirectSpecularColor: {r: 0.043220494, g: 0.0528794, b: 0.06995029, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_SpawnPrefabs.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 477486, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_LocalPosition.x
@@ -437,7 +437,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: runAsServer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_NetworkAddress
@@ -454,11 +454,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_PlayerSpawnMethod
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11434398, guid: cdd03d2b1d937894da576570fded8115, type: 2}
       propertyPath: m_ShowGUI
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418718, guid: cdd03d2b1d937894da576570fded8115, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdd03d2b1d937894da576570fded8115, type: 2}
